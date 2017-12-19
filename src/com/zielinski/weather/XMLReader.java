@@ -4,16 +4,16 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.io.*;
 
-public class RSSReader {
+public class XMLReader {
 	public static void main(String[] args) {
-		System.out.println(readRSSFeed("http://w1.weather.gov/xml/current_obs/KSPI.xml"));
+		System.out.println(readXMLFeed("http://w1.weather.gov/xml/current_obs/KSPI.xml"));
 	}
-	public static String readRSSFeed(String urlAddress) {
+	public static String readXMLFeed(String urlAddress) {
 		try {
 			String sourceCode = "";
 			String line;
-			URL rssUrl = new URL (urlAddress);
-			BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
+			URL xmlUrl = new URL (urlAddress);
+			BufferedReader in = new BufferedReader(new InputStreamReader(xmlUrl.openStream()));
 			while((line = in.readLine()) != null) {
 				if(line.contains("<temperature_string")) {
 					System.out.println(line);
